@@ -694,9 +694,25 @@
 
         @media (max-width: 600px) {
             header {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
+                padding: 12px 16px;
+                gap: 8px;
+            }
+
+            .logo {
+                gap: 8px;
+            }
+
+            .logo img {
+                height: 44px;
+            }
+
+            .logo h2 {
+                font-size: 16px;
+                white-space: nowrap;
+            }
+
+            nav {
+                max-width: 220px;
             }
 
             nav ul {
@@ -704,7 +720,7 @@
             }
 
             .container {
-                width: 97%;
+                width: 94%;
             }
 
             .hero {
@@ -714,6 +730,51 @@
             .hero h1 {
                 font-size: 20px;
             }
+
+            .hero p {
+                font-size: 13px;
+                padding: 0 10px;
+            }
+
+            .judul-seksi {
+                font-size: 17px;
+            }
+
+            .card-box, .form-section {
+                padding: 16px;
+            }
+
+            .top-widgets-row {
+                flex-direction: column;
+            }
+
+            .kalender-section, .peta-section {
+                flex: 1 1 100%;
+            }
+
+            .layanan-grid {
+                flex-direction: column;
+            }
+
+            .kartu-layanan {
+                flex: 1 1 100%;
+            }
+
+            .struktur-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .galeri-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .banner-galeri {
+                padding: 20px 16px;
+            }
+
+            .banner-galeri h3 {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -721,7 +782,7 @@
 
     <header>
         <div class="logo">
-            <img src="logo-kelurahan-bane.jpeg" alt="Logo Kota Pematangsiantar">
+            <img src="logo-kelurahan-bane.png" alt="Logo Kota Pematangsiantar">
             <h2>Kelurahan Bane</h2>
         </div>
         <button class="hamburger-btn" id="hamburgerBtn" aria-label="Buka menu">
