@@ -57,8 +57,6 @@ public class pusatserver {
                     exchange.getResponseHeaders().set("Content-Type", "text/css");
                 } else if (lowerPath.endsWith(".js")) {
                     exchange.getResponseHeaders().set("Content-Type", "application/javascript");
-                } else if (lowerPath.endsWith(".mp3")) {
-                    exchange.getResponseHeaders().set("Content-Type", "audio/mpeg");
                 } else if (lowerPath.endsWith(".mp4")) {
                     exchange.getResponseHeaders().set("Content-Type", "video/mp4");
                 } else if (lowerPath.endsWith(".jpg") || lowerPath.endsWith(".jpeg")) {
