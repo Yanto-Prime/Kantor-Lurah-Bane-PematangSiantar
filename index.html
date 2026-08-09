@@ -903,34 +903,6 @@
             <a href="galeri" class="btn-galeri-link">Buka Album Galeri Lengkap 🖼️</a>
         </section>
 
-        <!-- SECTION: FORM -->
-        <section id="pengajuan" class="form-section">
-            <h2 class="judul-seksi">Formulir Pengajuan Surat Online</h2>
-            
-            <form action="PusatServer" method="POST">
-                <div class="form-group">
-                    <label>Nama Lengkap (Sesuai KTP):</label>
-                    <input type="text" name="nama" placeholder="Masukkan nama..." required>
-                </div>
-
-                <div class="form-group">
-                    <label>NIK (Nomor Induk Kependudukan):</label>
-                    <input type="text" name="nik" placeholder="16 digit NIK..." maxlength="16" pattern="[0-9]{16}" inputmode="numeric" required title="NIK harus terdiri dari 16 digit angka">
-                </div>
-
-                <div class="form-group">
-                    <label>Jenis Surat yang Diajukan:</label>
-                    <select name="jenisSurat">
-                        <option value="SKU">Surat Keterangan Usaha (SKU)</option>
-                        <option value="SKD">Surat Keterangan Domisili</option>
-                        <option value="SPKTP">Pengantar KTP/KK</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="btn-kirim">Kirim Pengajuan Surat</button>
-            </form>
-        </section>
-    </div>
 
     <footer>
         <p>© 2026 Pemerintah Kelurahan Bane, Kecamatan Siantar Utara. All Rights Reserved.</p>
