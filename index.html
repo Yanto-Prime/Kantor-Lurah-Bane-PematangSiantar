@@ -906,72 +906,10 @@
             <a href="galeri" class="btn-galeri-link">Buka Album Galeri Lengkap 🖼️</a>
         </section>
 
-        <!-- SECTION: FORM -->
-        <section id="pengajuan" class="form-section">
-            <h2 class="judul-seksi">Formulir Pengajuan Surat Online</h2>
-            
-            <form action="PusatServer" method="POST">
-                <div class="form-group">
-                    <label>Nama Lengkap (Sesuai KTP):</label>
-                    <input type="text" name="nama" placeholder="Masukkan nama..." required>
-                </div>
-
-                <div class="form-group">
-                    <label>NIK (Nomor Induk Kependudukan):</label>
-                    <input type="text" name="nik" placeholder="16 digit NIK..." maxlength="16" pattern="[0-9]{16}" inputmode="numeric" required title="NIK harus terdiri dari 16 digit angka">
-                </div>
-
-                <div class="form-group">
-                    <label>Jenis Surat yang Diajukan:</label>
-                    <select name="jenisSurat">
-                        <option value="SKU">Surat Keterangan Usaha (SKU)</option>
-                        <option value="SKD">Surat Keterangan Domisili</option>
-                        <option value="SPKTP">Pengantar KTP/KK</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="btn-kirim">Kirim Pengajuan Surat</button>
-            </form>
-        </section>
-    </div>
-
     <footer>
         <p>© 2026 Pemerintah Kelurahan Bane, Kecamatan Siantar Utara. All Rights Reserved.</p>
         <p>Help/Support 08887359178</p>
     </footer>
-
-    <!-- WIDGET PEMUTAR MUSIK CASSETTE (DRAGGABLE) -->
-    <div class="cassette-container" id="draggableCassette">
-        <div class="cassette-body">
-            <div class="search-box-music">
-                <input type="text" id="musicSearchInput" placeholder="Cari lagu..." onmousedown="event.stopPropagation()">
-                <button id="btnSearchMusic" onmousedown="event.stopPropagation()">Cari</button>
-            </div>
-            
-            <div class="search-results-music" id="searchResultsMusic" onmousedown="event.stopPropagation()"></div>
-
-            <div class="cassette-wheels">
-                <div class="wheel"></div>
-                <div class="wheel"></div>
-            </div>
-            <div class="cassette-label" id="songTitleLabel">Playing: Soulmate</div>
-            
-            <div class="progress-container" id="progressContainer">
-                <div class="progress-bar" id="progressBar"></div>
-            </div>
-            
-            <div class="controls-row">
-                <span id="currentTime">00:00</span>
-                <button class="btn-repeat" id="repeatBtn" title="Ulangi Lagu">Ulang</button>
-                <span id="duration">00:00</span>
-            </div>
-        </div>
-    </div>
-
-    <audio id="bgMusic" preload="auto" playsinline>
-        <source src="Soulmate.mp3" type="audio/mpeg">
-        Browser Anda tidak mendukung elemen audio.
-    </audio>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
