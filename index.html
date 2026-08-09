@@ -65,11 +65,16 @@
         /* --- HERO BANNER --- */
         .hero {
             background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), 
-                        url('fuurinmc.jpeg') center/cover;
+                        url('fuurinmc.jpeg') center/cover no-repeat;
             color: white;
-            padding: 50px 15px;
-            text-align: center;
             width: 100%;
+            height: clamp(220px, 32vw, 380px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 15px;
         }
 
         .hero h1 {
@@ -633,7 +638,7 @@
             }
 
             .hero {
-                padding: 35px 10px;
+                height: clamp(180px, 45vw, 260px);
             }
 
             .hero h1 {
