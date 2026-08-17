@@ -432,8 +432,7 @@
             transform: translateY(-5px);
         }
 
-        .galeri-card img, 
-        .galeri-card video {
+        .galeri-card img {
             width: 100%;
             height: 180px;
             object-fit: cover;
@@ -466,53 +465,6 @@
             font-weight: 600;
         }
 
-        /* --- FORM PENGAJUAN SURAT --- */
-        .form-section {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            margin-top: 30px;
-            width: 100%;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            font-weight: 600;
-            margin-bottom: 5px;
-            font-size: 13px;
-        }
-
-        .form-group input, 
-        .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            font-size: 14px;
-        }
-
-        .btn-kirim {
-            background-color: #2563eb;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            transition: 0.3s;
-        }
-
-        .btn-kirim:hover {
-            background-color: #1d4ed8;
-        }
-
         /* --- FOOTER --- */
         footer {
             background-color: #0f172a;
@@ -523,172 +475,6 @@
             font-size: 13px;
             width: 100%;
             display: block;
-        }
-
-        /* --- CASSETTE PLAYER DESIGN --- */
-        .cassette-container {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            background: #0f172a;
-            border: 2px solid #2563eb;
-            border-radius: 12px;
-            padding: 10px;
-            width: 240px;
-            max-width: 90vw;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-            z-index: 1000;
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            user-select: none;
-            cursor: move;
-            touch-action: none;
-        }
-
-        .cassette-body {
-            background: #1e293b;
-            border-radius: 8px;
-            padding: 8px;
-            border: 1px solid #334155;
-        }
-
-        .search-box-music {
-            display: flex;
-            gap: 5px;
-            margin-bottom: 8px;
-        }
-
-        .search-box-music input {
-            width: 100%;
-            padding: 5px 8px;
-            font-size: 11px;
-            border-radius: 4px;
-            border: 1px solid #475569;
-            background: #0f172a;
-            color: white;
-            outline: none;
-        }
-
-        .search-box-music button {
-            background: #2563eb;
-            border: none;
-            color: white;
-            padding: 5px 10px;
-            font-size: 11px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .search-results-music {
-            max-height: 100px;
-            overflow-y: auto;
-            background: #0f172a;
-            border-radius: 4px;
-            margin-bottom: 8px;
-            display: none;
-        }
-
-        .music-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 5px;
-            font-size: 11px;
-            cursor: pointer;
-            border-bottom: 1px solid #1e293b;
-        }
-
-        .music-item:hover {
-            background: #1e293b;
-        }
-
-        .music-item img {
-            width: 25px;
-            height: 25px;
-            border-radius: 3px;
-        }
-
-        .music-item-info {
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
-
-        .cassette-wheels {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin-bottom: 8px;
-            background: #0f172a;
-            padding: 6px;
-            border-radius: 6px;
-        }
-
-        .wheel {
-            width: 28px;
-            height: 28px;
-            border: 3px dashed #60a5fa;
-            border-radius: 50%;
-            animation: spin 3s linear infinite;
-            animation-play-state: paused;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .cassette-label {
-            text-align: center;
-            font-size: 11px;
-            color: #93c5fd;
-            margin-bottom: 6px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            font-weight: 600;
-        }
-
-        .progress-container {
-            width: 100%;
-            background-color: #334155;
-            height: 6px;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-bottom: 6px;
-            cursor: pointer;
-        }
-
-        .progress-bar {
-            width: 0%;
-            height: 100%;
-            background-color: #3b82f6;
-            transition: width 0.1s linear;
-        }
-
-        .controls-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 10px;
-            color: #cbd5e1;
-            font-family: monospace;
-        }
-
-        .btn-repeat {
-            background: #334155;
-            border: 1px solid #475569;
-            color: #93c5fd;
-            cursor: pointer;
-            font-size: 10px;
-            padding: 2px 5px;
-            border-radius: 4px;
-            transition: 0.2s;
-        }
-
-        .btn-repeat:hover {
-            background: #2563eb;
-            color: white;
         }
 
         @media (max-width: 600px) {
@@ -739,7 +525,7 @@
                 font-size: 17px;
             }
 
-            .card-box, .form-section {
+            .card-box {
                 padding: 16px;
             }
 
@@ -796,8 +582,7 @@
                 <li><a href="#info-wilayah">Info & Lokasi</a></li>
                 <li><a href="#layanan">Layanan</a></li>
                 <li><a href="#galeri">Kegiatan</a></li>
-                <li><a href="galeri">Album Foto 📸</a></li>
-                <li><a href="#pengajuan">Pengajuan Surat</a></li>
+                <li><a href="galeri.html">Album Foto 📸</a></li>
             </ul>
         </nav>
     </header>
@@ -961,14 +746,11 @@
                 </div>
 
                 <div class="galeri-card">
-                    <video controls poster="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80">
-                        <source src="kegiatan-warga.mp4" type="video/mp4">
-                        Browser Anda tidak mendukung pemutar video.
-                    </video>
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80" alt="Kerja Bakti Penanaman Pohon">
                     <div class="galeri-info">
-                        <span class="galeri-badge">Video Dokumentasi</span>
+                        <span class="galeri-badge">Foto Kegiatan</span>
                         <h4>Kerja Bakti & Penanaman Pohon</h4>
-                        <p>Dokumentasi video penanaman bibit pohon di sepanjang jalan utama Kelurahan Bane.</p>
+                        <p>Dokumentasi foto penanaman bibit pohon di sepanjang jalan utama Kelurahan Bane.</p>
                     </div>
                 </div>
 
@@ -987,7 +769,7 @@
         <section class="banner-galeri">
             <h3>Ingin Melihat Lebih Banyak Foto Kegiatan & Aparatur Kami?</h3>
             <p>Kunjungi album galeri khusus untuk melihat kumpulan dokumentasi kegiatan dan foto tim staf kelurahan.</p>
-            <a href="galeri" class="btn-galeri-link">Buka Album Galeri Lengkap 🖼️</a>
+            <a href="galeri.html" class="btn-galeri-link">Buka Album Galeri Lengkap 🖼️</a>
         </section>
 
     </div>
@@ -1069,221 +851,6 @@
             renderKalender();
             updateJam();
             setInterval(updateJam, 1000);
-
-            // --- LOGIKA CASSETTE PLAYER (OPTIMAL UNTUK HP) ---
-            const audio = document.getElementById("bgMusic");
-            const progressBar = document.getElementById("progressBar");
-            const progressContainer = document.getElementById("progressContainer");
-            const currentTimeEl = document.getElementById("currentTime");
-            const durationEl = document.getElementById("duration");
-            const wheels = document.querySelectorAll(".wheel");
-            const cassette = document.getElementById("draggableCassette");
-            const repeatBtn = document.getElementById("repeatBtn");
-
-            let isAudioPlaying = false;
-
-            function formatTime(seconds) {
-                let min = Math.floor(seconds / 60);
-                let sec = Math.floor(seconds % 60);
-                if (min < 10) min = "0" + min;
-                if (sec < 10) sec = "0" + sec;
-                return min + ":" + sec;
-            }
-
-            function playAudio() {
-                if (isAudioPlaying) return;
-
-                audio.play().then(() => {
-                    isAudioPlaying = true;
-                    wheels.forEach(w => w.style.animationPlayState = "running");
-                    removeInteractions();
-                }).catch((err) => {
-                    console.log("Autoplay dicegat browser, menunggu gestur pengguna.");
-                });
-            }
-
-            function removeInteractions() {
-                window.removeEventListener("scroll", playAudio);
-                window.removeEventListener("touchstart", playAudio);
-                window.removeEventListener("touchend", playAudio);
-                window.removeEventListener("click", playAudio);
-                window.removeEventListener("keydown", playAudio);
-            }
-
-            window.addEventListener("scroll", playAudio, { passive: true });
-            window.addEventListener("touchstart", playAudio, { passive: true });
-            window.addEventListener("touchend", playAudio, { passive: true });
-            window.addEventListener("click", playAudio, { passive: true });
-            window.addEventListener("keydown", playAudio, { passive: true });
-
-            playAudio();
-
-            audio.addEventListener("loadedmetadata", function() {
-                durationEl.textContent = formatTime(audio.duration);
-            });
-
-            audio.addEventListener("timeupdate", function() {
-                if (audio.duration) {
-                    const percentage = (audio.currentTime / audio.duration) * 100;
-                    progressBar.style.width = percentage + "%";
-                    currentTimeEl.textContent = formatTime(audio.currentTime);
-                    durationEl.textContent = formatTime(audio.duration);
-                }
-            });
-
-            audio.addEventListener("ended", function() {
-                isAudioPlaying = false;
-                wheels.forEach(w => w.style.animationPlayState = "paused");
-            });
-
-            repeatBtn.addEventListener("click", function(e) {
-                e.stopPropagation();
-                audio.currentTime = 0;
-                audio.play();
-                isAudioPlaying = true;
-                wheels.forEach(w => w.style.animationPlayState = "running");
-            });
-
-            progressContainer.addEventListener("click", function(e) {
-                e.stopPropagation();
-                const rect = progressContainer.getBoundingClientRect();
-                const clickX = e.clientX - rect.left;
-                const width = rect.width;
-                if (audio.duration) {
-                    audio.currentTime = (clickX / width) * audio.duration;
-                    if (audio.paused) {
-                        audio.play();
-                        isAudioPlaying = true;
-                        wheels.forEach(w => w.style.animationPlayState = "running");
-                    }
-                }
-            });
-
-            // --- FITUR CARI LAGU INTERNET (ITUNES API) ---
-            const btnSearchMusic = document.getElementById("btnSearchMusic");
-            const musicSearchInput = document.getElementById("musicSearchInput");
-            const searchResultsMusic = document.getElementById("searchResultsMusic");
-            const songTitleLabel = document.getElementById("songTitleLabel");
-
-            function searchMusic() {
-                const query = musicSearchInput.value.trim();
-                if (!query) return;
-
-                searchResultsMusic.style.display = "block";
-                searchResultsMusic.innerHTML = "<div style='padding:5px; font-size:11px;'>Mencari...</div>";
-
-                fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(query)}&media=music&limit=5`)
-                    .then(response => response.json())
-                    .then(data => {
-                        searchResultsMusic.innerHTML = "";
-                        if (data.results.length === 0) {
-                            searchResultsMusic.innerHTML = "<div style='padding:5px; font-size:11px;'>Lagu tidak ditemukan</div>";
-                            return;
-                        }
-
-                        data.results.forEach(song => {
-                            const item = document.createElement("div");
-                            item.className = "music-item";
-                            item.innerHTML = `
-                                <img src="${song.artworkUrl30}" alt="Cover">
-                                <div class="music-item-info">
-                                    <strong>${song.trackName}</strong><br>
-                                    <small>${song.artistName}</small>
-                                </div>
-                            `;
-
-                            item.addEventListener("click", function(e) {
-                                e.stopPropagation();
-                                audio.src = song.previewUrl;
-                                audio.play();
-                                isAudioPlaying = true;
-                                songTitleLabel.innerText = `${song.trackName} - ${song.artistName}`;
-                                wheels.forEach(w => w.style.animationPlayState = "running");
-                                searchResultsMusic.style.display = "none";
-                            });
-
-                            searchResultsMusic.appendChild(item);
-                        });
-                    })
-                    .catch(err => {
-                        searchResultsMusic.innerHTML = "<div style='padding:5px; font-size:11px;'>Gagal memuat lagu</div>";
-                    });
-            }
-
-            btnSearchMusic.addEventListener("click", function(e) {
-                e.stopPropagation();
-                searchMusic();
-            });
-
-            musicSearchInput.addEventListener("keypress", function(e) {
-                if (e.key === "Enter") {
-                    e.stopPropagation();
-                    searchMusic();
-                }
-            });
-
-            // --- FITUR DRAG / GESER ---
-            let isDragging = false;
-            let startX, startY, initialLeft, initialTop;
-
-            function startDrag(e) {
-                if (e.target.closest("#progressContainer") || e.target.closest("#repeatBtn") || e.target.closest(".search-box-music") || e.target.closest(".search-results-music")) return;
-
-                isDragging = true;
-                
-                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-
-                startX = clientX;
-                startY = clientY;
-
-                const rect = cassette.getBoundingClientRect();
-                initialLeft = rect.left;
-                initialTop = rect.top;
-
-                cassette.style.bottom = "auto";
-                cassette.style.right = "auto";
-                cassette.style.left = initialLeft + "px";
-                cassette.style.top = initialTop + "px";
-
-                document.addEventListener("mousemove", onDrag);
-                document.addEventListener("touchmove", onDrag, { passive: false });
-                document.addEventListener("mouseup", stopDrag);
-                document.addEventListener("touchend", stopDrag);
-            }
-
-            function onDrag(e) {
-                if (!isDragging) return;
-
-                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-
-                const deltaX = clientX - startX;
-                const deltaY = clientY - startY;
-
-                let newLeft = initialLeft + deltaX;
-                let newTop = initialTop + deltaY;
-
-                const maxLeft = window.innerWidth - cassette.offsetWidth;
-                const maxTop = window.innerHeight - cassette.offsetHeight;
-
-                newLeft = Math.max(0, Math.min(newLeft, maxLeft));
-                newTop = Math.max(0, Math.min(newTop, maxTop));
-
-                cassette.style.left = newLeft + "px";
-                cassette.style.top = newTop + "px";
-            }
-
-            function stopDrag() {
-                isDragging = false;
-                document.removeEventListener("mousemove", onDrag);
-                document.removeEventListener("touchmove", onDrag);
-                document.removeEventListener("mouseup", stopDrag);
-                document.removeEventListener("touchend", stopDrag);
-            }
-
-            cassette.addEventListener("mousedown", startDrag);
-            cassette.addEventListener("touchstart", startDrag, { passive: false });
         });
     </script>
 </body>
