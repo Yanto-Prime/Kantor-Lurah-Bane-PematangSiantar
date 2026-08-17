@@ -432,11 +432,18 @@
             transform: translateY(-5px);
         }
 
+        /* Efek Kursor & Transisi Gambar Galeri */
         .galeri-card img {
             width: 100%;
             height: 180px;
             object-fit: cover;
             display: block;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .galeri-card img:hover {
+            opacity: 0.88;
         }
 
         .galeri-info {
@@ -463,6 +470,52 @@
             border-radius: 12px;
             margin-bottom: 8px;
             font-weight: 600;
+        }
+
+        /* --- MODAL LIGHTBOX FOTO --- */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(4px);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .image-modal-content {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            object-fit: contain;
+            animation: zoomIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+            user-select: none;
+        }
+
+        .close-modal:hover {
+            color: #f87171;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
         /* --- FOOTER --- */
@@ -559,6 +612,11 @@
 
             .banner-galeri h3 {
                 font-size: 16px;
+            }
+
+            .close-modal {
+                top: 15px;
+                right: 20px;
             }
         }
     </style>
@@ -737,16 +795,16 @@
             
             <div class="galeri-grid">
                 <div class="galeri-card">
-                    <img src="album/warga.jpeg" alt="Warga Sekitar">
+                    <img src="album/warga.jpeg" alt="Warga Sekitar" class="zoomable-img">
                     <div class="galeri-info">
                         <span class="galeri-badge">Foto Warga</span>
-                        <h4>Gangs O Block in Bane subdistrict </h4>
+                        <h4>Gangs O Block in Bane subdistrict</h4>
                         <p>Beberapa 2 warga sekitar(anak muda) yang termasuk kawasan kelurahan bane.</p>
                     </div>
                 </div>
 
                 <div class="galeri-card">
-                    <img src="album/kantor.jpeg" alt="KantorLurah">
+                    <img src="album/kantor.jpeg" alt="KantorLurah" class="zoomable-img">
                     <div class="galeri-info">
                         <span class="galeri-badge">Foto Kantor</span>
                         <h4>Kantor Lurah</h4>
@@ -755,7 +813,7 @@
                 </div>
 
                 <div class="galeri-card">
-                    <img src="album/Program.jpeg" alt="Program Kelurahan Bane">
+                    <img src="album/Program.jpeg" alt="Program Kelurahan Bane" class="zoomable-img">
                     <div class="galeri-info">
                         <span class="galeri-badge">Foto Program</span>
                         <h4>Program Hibah Air Minum</h4>
@@ -772,6 +830,12 @@
             <a href="galeri" class="btn-galeri-link">Buka Album Galeri Lengkap 🖼️</a>
         </section>
 
+    </div>
+
+    <!-- ELEMENT POPUP / MODAL FULLIMAGE -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <img class="image-modal-content" id="fullImage" alt="Tampilan Penuh Foto">
     </div>
 
     <footer>
@@ -851,6 +915,32 @@
             renderKalender();
             updateJam();
             setInterval(updateJam, 1000);
+
+            // --- LOGIKA POPUP / MODAL FULLSCREEN FOTO ---
+            const imageModal = document.getElementById("imageModal");
+            const fullImage = document.getElementById("fullImage");
+            const closeModal = document.getElementById("closeModal");
+            const zoomableImages = document.querySelectorAll(".zoomable-img");
+
+            zoomableImages.forEach(img => {
+                img.addEventListener("click", function () {
+                    imageModal.style.display = "flex";
+                    fullImage.src = this.src;
+                    fullImage.alt = this.alt;
+                });
+            });
+
+            // Tutup modal saat tombol silang diklik
+            closeModal.addEventListener("click", function () {
+                imageModal.style.display = "none";
+            });
+
+            // Tutup modal jika area luar gambar diklik
+            imageModal.addEventListener("click", function (e) {
+                if (e.target === imageModal) {
+                    imageModal.style.display = "none";
+                }
+            });
         });
     </script>
 </body>
