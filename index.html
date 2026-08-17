@@ -866,20 +866,20 @@
             <h2 class="judul-seksi">Struktur Organisasi</h2>
             <div class="struktur-grid">
                 <div class="struktur-card">
-                    <h4>Mulatua Siregar,SE</h4>
+                    <h4>Lurah</h4>
                     <p>Kepala Kelurahan Bane</p>
                 </div>
                 <div class="struktur-card">
-                    <h4>Yustina. M Ambarita,SE</h4>
-                    <p>Sekretaris Lurah</p>
+                    <h4>Sekretaris Lurah</h4>
+                    <p>Bidang Administrasi</p>
                 </div>
                 <div class="struktur-card">
-                    <h4>Lambok. H Sihombing,SH</h4>
-                    <p>Kasi Pemerintahan</p>
+                    <h4>Kasi Pemerintahan</h4>
+                    <p>Bidang Kependudukan</p>
                 </div>
                 <div class="struktur-card">
-                    <h4>Mery Adelina Tarigan,SE</h4>
-                    <p>Kasi Kesra & Trantib</p>
+                    <h4>Kasi Kesra & Trantib</h4>
+                    <p>Bidang Sosial & Keamanan</p>
                 </div>
             </div>
         </section>
@@ -952,23 +952,25 @@
             
             <div class="galeri-grid">
                 <div class="galeri-card">
-                    <img src="album/warga.jpeg" alt="Warga">
+                    <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=600&q=80" alt="Gotong Royong Kebersihan">
                     <div class="galeri-info">
-                        <span class="galeri-badge">Foto Warga</span>
-                        <h4>Foto Warga Gangs</h4>
-                        <p>Salah Satu Warga .</p>
+                        <span class="galeri-badge">Foto Kegiatan</span>
+                        <h4>Gotong Royong Kebersihan Lingkungan</h4>
+                        <p>Aktivitas pembersihan saluran air dan area fasilitas umum bersama warga RW 02.</p>
                     </div>
                 </div>
 
-            <div class="galeri-card">
-                <div class+"galeri-card">
-                    <img src="album/kantor.jpeg" alt="Deskripsi Foto">
-                    <div class='galeri-info">
-                        <span class="galeri-badge">Foto Warga</span>
-                        <h4>Foto Warga Gangs</h4>
-                        <p>Kantor Lurah Dari Depan.</p>
+                <div class="galeri-card">
+                    <video controls poster="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80">
+                        <source src="kegiatan-warga.mp4" type="video/mp4">
+                        Browser Anda tidak mendukung pemutar video.
+                    </video>
+                    <div class="galeri-info">
+                        <span class="galeri-badge">Video Dokumentasi</span>
+                        <h4>Kerja Bakti & Penanaman Pohon</h4>
+                        <p>Dokumentasi video penanaman bibit pohon di sepanjang jalan utama Kelurahan Bane.</p>
                     </div>
-                </div>    
+                </div>
 
                 <div class="galeri-card">
                     <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=600&q=80" alt="Kegiatan Posyandu">
@@ -983,9 +985,9 @@
 
         <!-- BANNER UNTUK AKSES LAYAR KE-2 (GALERI) -->
         <section class="banner-galeri">
-            <h3>Ingin Melihat Lebih Banyak Foto Kantor Lurah Bane?</h3>
-            <p>Kunjungi album galeri khusus untuk melihat kumpulan foto kantor lurah bane baik dari luar maupun dalam.</p>
-            <a href="galeri" class="btn-galeri-link">Buka Album Galeri Lengkap </a>
+            <h3>Ingin Melihat Lebih Banyak Foto Kegiatan & Aparatur Kami?</h3>
+            <p>Kunjungi album galeri khusus untuk melihat kumpulan dokumentasi kegiatan dan foto tim staf kelurahan.</p>
+            <a href="galeri" class="btn-galeri-link">Buka Album Galeri Lengkap 🖼️</a>
         </section>
 
     </div>
@@ -1067,6 +1069,158 @@
             renderKalender();
             updateJam();
             setInterval(updateJam, 1000);
+
+            // --- LOGIKA CASSETTE PLAYER (OPTIMAL UNTUK HP) ---
+            const audio = document.getElementById("bgMusic");
+            const progressBar = document.getElementById("progressBar");
+            const progressContainer = document.getElementById("progressContainer");
+            const currentTimeEl = document.getElementById("currentTime");
+            const durationEl = document.getElementById("duration");
+            const wheels = document.querySelectorAll(".wheel");
+            const cassette = document.getElementById("draggableCassette");
+            const repeatBtn = document.getElementById("repeatBtn");
+
+            let isAudioPlaying = false;
+
+            function formatTime(seconds) {
+                let min = Math.floor(seconds / 60);
+                let sec = Math.floor(seconds % 60);
+                if (min < 10) min = "0" + min;
+                if (sec < 10) sec = "0" + sec;
+                return min + ":" + sec;
+            }
+
+            function playAudio() {
+                if (isAudioPlaying) return;
+
+                audio.play().then(() => {
+                    isAudioPlaying = true;
+                    wheels.forEach(w => w.style.animationPlayState = "running");
+                    removeInteractions();
+                }).catch((err) => {
+                    console.log("Autoplay dicegat browser, menunggu gestur pengguna.");
+                });
+            }
+
+            function removeInteractions() {
+                window.removeEventListener("scroll", playAudio);
+                window.removeEventListener("touchstart", playAudio);
+                window.removeEventListener("touchend", playAudio);
+                window.removeEventListener("click", playAudio);
+                window.removeEventListener("keydown", playAudio);
+            }
+
+            window.addEventListener("scroll", playAudio, { passive: true });
+            window.addEventListener("touchstart", playAudio, { passive: true });
+            window.addEventListener("touchend", playAudio, { passive: true });
+            window.addEventListener("click", playAudio, { passive: true });
+            window.addEventListener("keydown", playAudio, { passive: true });
+
+            playAudio();
+
+            audio.addEventListener("loadedmetadata", function() {
+                durationEl.textContent = formatTime(audio.duration);
+            });
+
+            audio.addEventListener("timeupdate", function() {
+                if (audio.duration) {
+                    const percentage = (audio.currentTime / audio.duration) * 100;
+                    progressBar.style.width = percentage + "%";
+                    currentTimeEl.textContent = formatTime(audio.currentTime);
+                    durationEl.textContent = formatTime(audio.duration);
+                }
+            });
+
+            audio.addEventListener("ended", function() {
+                isAudioPlaying = false;
+                wheels.forEach(w => w.style.animationPlayState = "paused");
+            });
+
+            repeatBtn.addEventListener("click", function(e) {
+                e.stopPropagation();
+                audio.currentTime = 0;
+                audio.play();
+                isAudioPlaying = true;
+                wheels.forEach(w => w.style.animationPlayState = "running");
+            });
+
+            progressContainer.addEventListener("click", function(e) {
+                e.stopPropagation();
+                const rect = progressContainer.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const width = rect.width;
+                if (audio.duration) {
+                    audio.currentTime = (clickX / width) * audio.duration;
+                    if (audio.paused) {
+                        audio.play();
+                        isAudioPlaying = true;
+                        wheels.forEach(w => w.style.animationPlayState = "running");
+                    }
+                }
+            });
+
+            // --- FITUR CARI LAGU INTERNET (ITUNES API) ---
+            const btnSearchMusic = document.getElementById("btnSearchMusic");
+            const musicSearchInput = document.getElementById("musicSearchInput");
+            const searchResultsMusic = document.getElementById("searchResultsMusic");
+            const songTitleLabel = document.getElementById("songTitleLabel");
+
+            function searchMusic() {
+                const query = musicSearchInput.value.trim();
+                if (!query) return;
+
+                searchResultsMusic.style.display = "block";
+                searchResultsMusic.innerHTML = "<div style='padding:5px; font-size:11px;'>Mencari...</div>";
+
+                fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(query)}&media=music&limit=5`)
+                    .then(response => response.json())
+                    .then(data => {
+                        searchResultsMusic.innerHTML = "";
+                        if (data.results.length === 0) {
+                            searchResultsMusic.innerHTML = "<div style='padding:5px; font-size:11px;'>Lagu tidak ditemukan</div>";
+                            return;
+                        }
+
+                        data.results.forEach(song => {
+                            const item = document.createElement("div");
+                            item.className = "music-item";
+                            item.innerHTML = `
+                                <img src="${song.artworkUrl30}" alt="Cover">
+                                <div class="music-item-info">
+                                    <strong>${song.trackName}</strong><br>
+                                    <small>${song.artistName}</small>
+                                </div>
+                            `;
+
+                            item.addEventListener("click", function(e) {
+                                e.stopPropagation();
+                                audio.src = song.previewUrl;
+                                audio.play();
+                                isAudioPlaying = true;
+                                songTitleLabel.innerText = `${song.trackName} - ${song.artistName}`;
+                                wheels.forEach(w => w.style.animationPlayState = "running");
+                                searchResultsMusic.style.display = "none";
+                            });
+
+                            searchResultsMusic.appendChild(item);
+                        });
+                    })
+                    .catch(err => {
+                        searchResultsMusic.innerHTML = "<div style='padding:5px; font-size:11px;'>Gagal memuat lagu</div>";
+                    });
+            }
+
+            btnSearchMusic.addEventListener("click", function(e) {
+                e.stopPropagation();
+                searchMusic();
+            });
+
+            musicSearchInput.addEventListener("keypress", function(e) {
+                if (e.key === "Enter") {
+                    e.stopPropagation();
+                    searchMusic();
+                }
+            });
 
             // --- FITUR DRAG / GESER ---
             let isDragging = false;
