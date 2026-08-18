@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Resmi Kelurahan Bane - Pematangsiantar</title>
+    <title>Website Resmi Kelurahan Bane</title>
     
     <style>
         /* --- RESET & KUNCI SCROLL HORIZONTAL --- */
@@ -23,7 +23,6 @@
             background-color: #f1f5f9;
             color: #334155;
             line-height: 1.6;
-            scroll-behavior: smooth;
         }
 
         /* --- NAVBAR / HEADER --- */
@@ -55,6 +54,43 @@
         .logo h2 {
             font-size: 20px;
             color: #60a5fa;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Styling Media Sosial Header & Footer */
+        .social-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background: #2563eb;
+            transform: translateY(-2deg);
+        }
+
+        .social-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
         }
 
         .hamburger-btn {
@@ -134,147 +170,343 @@
 
         /* --- HERO BANNER --- */
         .hero {
-            background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(15, 23, 42, 0.9)), url('fuurinmc.jpeg') center/cover no-repeat;
+            background: url('fuurinmc.jpeg') center/cover no-repeat;
             color: white;
             width: 100%;
-            height: clamp(300px, 45vw, 450px);
+            height: clamp(220px, 32vw, 380px);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
         .hero h1 {
-            font-size: clamp(22px, 4vw, 36px);
-            margin-bottom: 10px;
+            font-size: 24px;
+            margin-bottom: 8px;
         }
 
         .hero p {
-            font-size: clamp(14px, 2vw, 18px);
-            color: #93c5fd;
-            max-width: 600px;
+            font-size: 14px;
+            color: #e2e8f0;
         }
 
         /* --- CONTAINER KONTEN --- */
         .container {
-            width: 92%;
-            max-width: 1200px;
-            margin: 30px auto;
+            width: 96%;
+            max-width: 1280px;
+            margin: 20px auto;
         }
 
-        .section-title {
+        .judul-seksi {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             color: #1e3a8a;
-            font-size: 24px;
-            position: relative;
+            font-size: 20px;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 3px;
-            background: #2563eb;
-            margin: 8px auto 0;
-            border-radius: 2px;
-        }
-
-        /* --- SEKSI PROFIL & VISI MISI --- */
-        .card {
+        /* --- CARD STYLE KHUSUS KONTEN TAMBAHAN --- */
+        .card-box {
             background: white;
-            padding: 25px;
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
-        }
-
-        .card h3 {
-            color: #1e3a8a;
-            margin-bottom: 12px;
-            font-size: 18px;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        /* --- SEKSI LAYANAN --- */
-        .layanan-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-        }
-
-        .layanan-item {
-            background: white;
             padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+            border-top: 4px solid #1e3a8a;
+        }
+
+        /* Visi Misi Style */
+        .visi-box {
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .misi-list {
+            padding-left: 20px;
+        }
+
+        .misi-list li {
+            margin-bottom: 8px;
+        }
+
+        /* Struktur Organisasi Table */
+        .struktur-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .struktur-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
             border-radius: 8px;
-            border-left: 4px solid #1e3a8a;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            text-align: center;
         }
 
-        .layanan-item h4 {
+        .struktur-card h4 {
             color: #1e3a8a;
-            margin-bottom: 6px;
+            font-size: 14px;
+            margin-bottom: 5px;
         }
 
-        .layanan-item p {
+        .struktur-card p {
             font-size: 13px;
             color: #64748b;
         }
 
-        /* --- SEKSI GALERI PREVIEW --- */
-        .galeri-preview {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-            margin-bottom: 20px;
+        /* Button Galeri Page */
+        .banner-galeri {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
         }
 
-        .galeri-item {
+        .btn-galeri-link {
+            display: inline-block;
+            margin-top: 15px;
             background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+            color: #1e3a8a;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
         }
 
-        .galeri-item img {
+        .btn-galeri-link:hover {
+            background: #93c5fd;
+        }
+
+        /* --- BARIS BERDAMPINGAN: KALENDER & PETA --- */
+        .top-widgets-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            align-items: stretch;
             width: 100%;
-            height: 180px;
-            object-fit: cover;
-            cursor: pointer;
         }
 
-        .galeri-item-desc {
-            padding: 12px;
+        /* WIDGET KALENDER */
+        .kalender-section {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid #1e3a8a;
+            flex: 1 1 300px;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .galeri-item-desc h5 {
+        .kalender-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            background: #f8fafc;
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+
+        .kalender-info h3 {
             color: #1e3a8a;
             font-size: 14px;
         }
 
-        .btn-selengkapnya {
-            display: block;
-            width: fit-content;
-            margin: 20px auto 0;
-            background: #1e3a8a;
-            color: white;
-            padding: 10px 24px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            transition: 0.3s;
+        .kalender-info p {
+            color: #64748b;
+            font-size: 11px;
         }
 
-        .btn-selengkapnya:hover {
-            background: #2563eb;
+        .jam-realtime {
+            background: #1e3a8a;
+            color: #60a5fa;
+            font-family: monospace;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .kalender-grid-header, .kalender-grid-dates {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            text-align: center;
+        }
+
+        .kalender-grid-header div {
+            font-weight: 700;
+            color: #475569;
+            padding: 4px 0;
+            background: #e2e8f0;
+            border-radius: 3px;
+            font-size: 10px;
+            margin: 1px;
+        }
+
+        .kalender-grid-dates div {
+            padding: 8px 0;
+            margin: 1px;
+            border-radius: 4px;
+            font-size: 11px;
+            color: #334155;
+            background: #f8fafc;
+        }
+
+        .kalender-grid-dates div:hover {
+            background: #e2e8f0;
+        }
+
+        .kalender-grid-dates .empty {
+            background: transparent;
+        }
+
+        .kalender-grid-dates .today {
+            background-color: #2563eb !important;
+            color: white !important;
+            font-weight: bold;
+        }
+
+        /* WIDGET PETA DIGITAL */
+        .peta-section {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid #1e3a8a;
+            flex: 1.2 1 300px;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .peta-header {
+            margin-bottom: 10px;
+        }
+
+        .peta-header h3 {
+            color: #1e3a8a;
+            font-size: 15px;
+        }
+
+        .peta-header p {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .peta-container {
+            width: 100%;
+            flex: 1;
+            min-height: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #cbd5e1;
+        }
+
+        .peta-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- KARTU LAYANAN --- */
+        .layanan-grid {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .kartu-layanan {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            flex: 1 1 250px;
+            max-width: 100%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            border-top: 4px solid #2563eb;
+        }
+
+        .kartu-layanan h3 {
+            margin-bottom: 10px;
+            color: #1e293b;
+            font-size: 16px;
+        }
+
+        /* --- GALERI PREVIEW --- */
+        .galeri-section {
+            margin-top: 30px;
+        }
+
+        .galeri-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 15px;
+        }
+
+        .galeri-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .galeri-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Efek Kursor & Transisi Gambar Galeri */
+        .galeri-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .galeri-card img:hover {
+            opacity: 0.88;
+        }
+
+        .galeri-info {
+            padding: 15px;
+        }
+
+        .galeri-info h4 {
+            color: #1e3a8a;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .galeri-info p {
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .galeri-badge {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            font-weight: 600;
         }
 
         /* --- MODAL LIGHTBOX FOTO --- */
@@ -297,7 +529,9 @@
             max-width: 90%;
             max-height: 85vh;
             border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
             object-fit: contain;
+            animation: zoomIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .close-modal {
@@ -308,6 +542,17 @@
             font-size: 36px;
             font-weight: bold;
             cursor: pointer;
+            transition: 0.2s;
+            user-select: none;
+        }
+
+        .close-modal:hover {
+            color: #f87171;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
         /* --- FOOTER --- */
@@ -315,159 +560,381 @@
             background-color: #0f172a;
             color: #94a3b8;
             text-align: center;
-            padding: 25px 15px;
-            margin-top: 50px;
+            padding: 20px 15px;
+            margin: 40px 0 0 0;
             font-size: 13px;
+            width: 100%;
+            display: block;
+        }
+
+        footer .social-container {
+            justify-content: center;
+            margin: 12px 0;
         }
 
         @media (max-width: 600px) {
             header {
                 padding: 12px 16px;
+                gap: 8px;
             }
+
+            .logo {
+                gap: 8px;
+            }
+
             .logo img {
                 height: 44px;
             }
+
             .logo h2 {
                 font-size: 16px;
+                white-space: nowrap;
             }
+
             nav {
                 max-width: 220px;
+            }
+
+            nav ul {
+                justify-content: center;
+            }
+
+            .container {
+                width: 94%;
+            }
+
+            .hero {
+                height: clamp(180px, 45vw, 260px);
+            }
+
+            .hero h1 {
+                font-size: 20px;
+            }
+
+            .hero p {
+                font-size: 13px;
+                padding: 0 10px;
+            }
+
+            .judul-seksi {
+                font-size: 17px;
+            }
+
+            .card-box {
+                padding: 16px;
+            }
+
+            .top-widgets-row {
+                flex-direction: column;
+            }
+
+            .kalender-section, .peta-section {
+                flex: 1 1 100%;
+            }
+
+            .layanan-grid {
+                flex-direction: column;
+            }
+
+            .kartu-layanan {
+                flex: 1 1 100%;
+            }
+
+            .struktur-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .galeri-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .banner-galeri {
+                padding: 20px 16px;
+            }
+
+            .banner-galeri h3 {
+                font-size: 16px;
+            }
+
+            .close-modal {
+                top: 15px;
+                right: 20px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR HEADER -->
     <header>
         <div class="logo">
             <img src="logo-kelurahan-bane.jpeg" alt="Logo Kota Pematangsiantar">
             <h2>Kelurahan Bane</h2>
         </div>
-        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Buka menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        
+        <div class="header-right">
+            <!-- WIDGET ICON SOSIAL MEDIA (HEADER) -->
+            <div class="social-container">
+                <!-- TikTok -->
+                <a href="#" class="social-icon social-tiktok" target="_blank" title="TikTok Kelurahan Bane">
+                    <svg viewBox="0 0 24 24"><path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 2.102 6.338 6.338 0 0 0 1.078 8.924 6.338 6.338 0 0 0 8.782-.931 6.267 6.267 0 0 0 1.558-4.286V8.948a8.282 8.282 0 0 0 4.777 1.518V7.021a4.805 4.805 0 0 1-1.566-.335z"/></svg>
+                </a>
+                <!-- YouTube -->
+                <a href="#" class="social-icon social-youtube" target="_blank" title="YouTube Kelurahan Bane">
+                    <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <!-- Instagram -->
+                <a href="#" class="social-icon social-instagram" target="_blank" title="Instagram Kelurahan Bane">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+            </div>
+
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Buka menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
         <nav id="navMenu">
             <ul>
                 <li><a href="#home">Beranda</a></li>
                 <li><a href="#profil">Profil & Visi Misi</a></li>
-                <li><a href="#info-wilayah">Info Wilayah</a></li>
+                <li><a href="#info-wilayah">Info & Lokasi</a></li>
                 <li><a href="#layanan">Layanan</a></li>
                 <li><a href="#galeri">Kegiatan</a></li>
-                <li><a href="galeri.html">Album Foto</a></li>
+                <li><a href="/galeri">Album Foto </a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="hero" id="home">
-        <h1>Selamat Datang di Portal Resmi Kelurahan Bane</h1>
-        <p>Kecamatan Siantar Utara, Kota Pematangsiantar, Sumatera Utara</p>
+        <h1>Selamat Datang di Pelayanan Digital</h1>
+        <p>Kelurahan Bane, Kecamatan Siantar Utara</p>
     </section>
 
     <div class="container">
 
-        <!-- PROFIL & VISI MISI -->
-        <section id="profil">
-            <h2 class="section-title">Profil & Visi Misi</h2>
-            <div class="grid-2">
-                <div class="card">
-                    <h3>Tentang Kelurahan Bane</h3>
-                    <p>Kelurahan Bane merupakan salah satu kelurahan yang terletak di Kecamatan Siantar Utara, Kota Pematangsiantar. Kelurahan ini terus berkomitmen meningkatkan kualitas pelayanan publik, tata kelola pemerintahan yang bersih, serta kesejahteraan masyarakat secara berkelanjutan.</p>
+        <!-- SECTION: PROFIL KANTOR LURAH & ALAMAT -->
+        <section id="profil" class="card-box">
+            <h2 class="judul-seksi">Profil Kantor Lurah Bane</h2>
+            <p style="font-size: 14px; margin-bottom: 15px; text-align: justify;">
+                Kantor Kelurahan Bane bertugas sebagai pusat penyelenggaraan pemerintahan, pembangunan infrastruktur, dan pembinaan sosial kemasyarakatan di wilayah Kecamatan Siantar Utara. Kami berkomitmen memberikan pelayanan umum yang profesional, cepat, transparan, dan dapat diakses oleh seluruh lapisan masyarakat.
+            </p>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap; background: #f8fafc; padding: 15px; border-radius: 8px;">
+                <div style="flex: 1; min-width: 200px;">
+                    <h4 style="color: #1e3a8a; font-size: 14px;"> Alamat Kantor:</h4>
+                    <p style="font-size: 13px;">Kelurahan Bane, Kecamatan Siantar Utara, Kota Pematang Siantar, Sumatera Utara.</p>
                 </div>
-                <div class="card">
-                    <h3>Visi & Misi</h3>
-                    <p><strong>Visi:</strong> Mewujudkan pelayanan masyarakat Kelurahan Bane yang prima, transparan, mandiri, dan sejahtera.</p>
-                    <br>
-                    <p><strong>Misi:</strong></p>
-                    <ul style="margin-left: 20px; font-size: 14px;">
-                        <li>Meningkatkan kualitas pelayanan administrasi kependudukan.</li>
-                        <li>Mempererat gotong royong dan ketertiban lingkungan.</li>
-                        <li>Mendorong percepatan pembangunan fasilitas umum warga.</li>
-                    </ul>
+                <div style="flex: 1; min-width: 200px;">
+                    <h4 style="color: #1e3a8a; font-size: 14px;"> Jam Operasional Pelayanan:</h4>
+                    <p style="font-size: 13px;">Senin – Jumat: 08.00 – 16.00 WIB<br>Sabtu & Minggu: Libur</p>
                 </div>
             </div>
         </section>
 
-        <!-- INFO WILAYAH -->
-        <section id="info-wilayah">
-            <h2 class="section-title">Informasi Wilayah</h2>
-            <div class="card">
-                <h3>Lokasi Kantor Lurah Bane</h3>
-                <p>Kantor Kelurahan Bane berlokasi strategis untuk melayani masyarakat di kawasan Siantar Utara. Untuk keperluan administrasi, silakan datang langsung pada jam kerja operasional (Senin - Jumat, 08:00 - 16:00 WIB).</p>
-            </div>
-        </section>
-
-        <!-- LAYANAN PUBLIK -->
-        <section id="layanan">
-            <h2 class="section-title">Layanan Publik</h2>
-            <div class="layanan-grid">
-                <div class="layanan-item">
-                    <h4>Surat Keterangan Usaha (SKU)</h4>
-                    <p>Pengurusan surat keterangan resmi untuk pelaku usaha di wilayah Kelurahan Bane.</p>
-                </div>
-                <div class="layanan-item">
-                    <h4>Surat Keterangan Domisili</h4>
-                    <p>Layanan pembuatan dokumen domisili perorangan maupun lembaga/instansi.</p>
-                </div>
-                <div class="layanan-item">
-                    <h4>Pengurusan KK & KTP</h4>
-                    <p>Penerbitan surat pengantar resmi untuk pembuatan/perubahan dokumen kependudukan.</p>
-                </div>
-                <div class="layanan-item">
-                    <h4>Surat Keterangan Tidak Mampu (SKTM)</h4>
-                    <p>Pengurusan bantuan administratif bagi masyarakat yang membutuhkan fasilitasi sosial.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- PREVIEW KEGIATAN & DOKUMENTASI -->
-        <section id="galeri" style="margin-top: 40px;">
-            <h2 class="section-title">Dokumentasi & Kegiatan</h2>
-            <div class="galeri-preview">
-                <div class="galeri-item">
-                    <img src="album/kantor.jpeg" alt="Gedung Kantor Lurah" class="zoomable-img">
-                    <div class="galeri-item-desc">
-                        <h5>Kantor Kelurahan Bane</h5>
-                    </div>
-                </div>
-                <div class="galeri-item">
-                    <img src="album/warga.jpeg" alt="Kegiatan Warga" class="zoomable-img">
-                    <div class="galeri-item-desc">
-                        <h5>Kegiatan Pemuda & Warga</h5>
-                    </div>
-                </div>
-                <div class="galeri-item">
-                    <img src="album/Program.jpeg" alt="Program Kerja Kelurahan" class="zoomable-img">
-                    <div class="galeri-item-desc">
-                        <h5>Program Air Minum Perkotaan</h5>
-                    </div>
-                </div>
-            </div>
+        <!-- SECTION: VISI & MISI & FUNGSI UTAMA -->
+        <section class="card-box">
+            <h2 class="judul-seksi">Visi & Misi Kelurahan Bane Serta Fungsi Utamanya</h2>
             
-            <!-- Link menuju website kedua (Album Foto) -->
-            <a href="galeri.html" class="btn-selengkapnya">Lihat Semua Album Foto ➡️</a>
+            <div class="visi-box">
+                <h3 style="color: #1e3a8a; font-size: 15px; margin-bottom: 5px;">VISI</h3>
+                <p style="font-size: 14px; font-style: italic;">
+                    "Mewujudkan Kelurahan Bane yang Maju, Sejahtera, Aman, dan Unggul dalam Pelayanan Publik Berbasis Kebersamaan."
+                </p>
+            </div>
+
+            <div>
+                <h3 style="color: #1e3a8a; font-size: 15px; margin-bottom: 10px;">MISI</h3>
+                <ol class="misi-list" style="font-size: 13px;">
+                    <li>Meningkatkan mutu pelayanan administrasi kependudukan yang cepat, transparan, dan akuntabel.</li>
+                    <li>Mendorong partisipasi aktif masyarakat dalam gotong royong dan pembangunan infrastruktur wilayah.</li>
+                    <li>Mewujudkan lingkungan pemukiman yang bersih, asri, aman, dan bebas banjir.</li>
+                    <li>Meningkatkan kordinasi dan sinergi antara lurah, kader PKK, tokoh masyarakat, serta lembaga RT/RW.</li>
+                </ol>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <h3 style="color: #1e3a8a; font-size: 15px; margin-bottom: 10px;">FUNGSI UTAMA</h3>
+                <ol class="misi-list" style="font-size: 13px;">
+                    <li>Menyelenggarakan urusan pemerintahan umum di wilayah Kelurahan Bane, termasuk administrasi kependudukan dan pertanahan.</li>
+                    <li>Melaksanakan pemberdayaan masyarakat, mulai dari pembinaan RT/RW hingga dukungan terhadap kegiatan PKK dan karang taruna.</li>
+                    <li>Memberikan pelayanan langsung kepada masyarakat, seperti penerbitan surat keterangan dan pengantar dokumen kependudukan.</li>
+                    <li>Memelihara ketenteraman, ketertiban umum, serta keamanan lingkungan bersama warga dan aparat terkait.</li>
+                    <li>Memelihara sarana dan prasarana serta fasilitas pelayanan umum milik Kelurahan Bane.</li>
+                    <li>Membina lembaga kemasyarakatan dan mendukung program pembangunan yang bersumber dari swadaya maupun bantuan pemerintah.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- SECTION: STRUKTUR ORGANISASI -->
+        <section class="card-box">
+            <h2 class="judul-seksi">Struktur Organisasi</h2>
+            <div class="struktur-grid">
+                <div class="struktur-card">
+                    <h4>Mulatua Siregar,SE</h4>
+                    <p>Kepala Kelurahan Bane</p>
+                </div>
+                <div class="struktur-card">
+                    <h4>Yustina. M Ambarita,SE</h4>
+                    <p>Sekretaris Lurah</p>
+                </div>
+                <div class="struktur-card">
+                    <h4>Lambok. H Sihombing,SH</h4>
+                    <p>Kasi Pemerintahan</p>
+                </div>
+                <div class="struktur-card">
+                    <h4>Mery Adelina Tarigan,SE</h4>
+                    <p>Kasi Kesra & Trantib</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SECTION: TOP WIDGETS (KALENDER & MAPS) -->
+        <div class="top-widgets-row" id="info-wilayah">
+            
+            <section class="kalender-section">
+                <div class="kalender-header">
+                    <div class="kalender-info">
+                        <h3 id="kalenderBulanTahun">Bulan Tahun</h3>
+                        <p id="kalenderHariIni">Hari, 00 Bulan 0000</p>
+                    </div>
+                    <div class="jam-realtime" id="jamRealtime">00:00:00 WIB</div>
+                </div>
+
+                <div class="kalender-grid-header">
+                    <div>Min</div>
+                    <div>Sen</div>
+                    <div>Sel</div>
+                    <div>Rab</div>
+                    <div>Kam</div>
+                    <div>Jum</div>
+                    <div>Sab</div>
+                </div>
+
+                <div class="kalender-grid-dates" id="kalenderDates"></div>
+            </section>
+
+            <section class="peta-section">
+                <div class="peta-header">
+                    <h3>Peta Lokasi Kelurahan Bane</h3>
+                    <p>Kecamatan Siantar Utara, Kota Pematang Siantar</p>
+                </div>
+                
+                <div class="peta-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d996.089585062831!2d99.0577904!3d2.9701832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3031847d4d1b365b%3A0x321d498aca69a822!2sKantor%20Kelurahan%20Bane!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- SECTION: LAYANAN -->
+        <section id="layanan">
+            <h2 class="judul-seksi">Layanan Administrasi Warga</h2>
+            
+            <div class="layanan-grid">
+                <div class="kartu-layanan">
+                    <h3>Surat Keterangan Usaha</h3>
+                    <p>Pengurusan Keterangan Usaha (SKU) untuk perizinan UMKM warga.</p>
+                </div>
+                <div class="kartu-layanan">
+                    <h3>Surat Keterangan Domisili</h3>
+                    <p>Pengurusan bukti tempat tinggal resmi warga di wilayah kelurahan.</p>
+                </div>
+                <div class="kartu-layanan">
+                    <h3>Surat Pengantar KTP/KK</h3>
+                    <p>Pengurusan surat pengantar untuk pembuatan e-KTP dan Kartu Keluarga.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: PREVIEW DOKUMENTASI -->
+        <section id="galeri" class="galeri-section">
+            <h2 class="judul-seksi">Galeri & Gambar Sekitar Kantor</h2>
+            
+            <div class="galeri-grid">
+                <div class="galeri-card">
+                    <img src="album/warga.jpeg" alt="Warga Sekitar" class="zoomable-img">
+                    <div class="galeri-info">
+                        <span class="galeri-badge">Foto Warga</span>
+                        <h4>Gangs O Block in Bane subdistrict</h4>
+                        <p>Beberapa 2 warga sekitar(anak muda) yang termasuk kawasan kelurahan bane.</p>
+                    </div>
+                </div>
+
+                <div class="galeri-card">
+                    <img src="album/kantor.jpeg" alt="KantorLurah" class="zoomable-img">
+                    <div class="galeri-info">
+                        <span class="galeri-badge">Foto Kantor</span>
+                        <h4>Kantor Lurah</h4>
+                        <p>Tampak Kantor lurah Secara Full Dari Depan</p>
+                    </div>
+                </div>
+
+                <div class="galeri-card">
+                    <img src="album/Program.jpeg" alt="Program Kelurahan Bane" class="zoomable-img">
+                    <div class="galeri-info">
+                        <span class="galeri-badge">Foto Program</span>
+                        <h4>Program Hibah Air Minum</h4>
+                        <p>List Wilayah Yang Mendapatkan Hibah Air Minum Perkotaan APBN.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BANNER UNTUK AKSES LAYAR KE-2 (GALERI) -->
+        <section class="banner-galeri">
+            <h3>Ingin Melihat Lebih Banyak Foto Kegiatan & Aparatur Kami?</h3>
+            <p>Kunjungi album galeri khusus untuk melihat kumpulan dokumentasi kegiatan dan foto tim staf kelurahan.</p>
+            <a href="galeri" class="btn-galeri-link">Buka Album Galeri Lengkap 🖼️</a>
         </section>
 
     </div>
 
-    <!-- MODAL LIGHTBOX FOTO -->
+    <!-- ELEMENT POPUP / MODAL FULLIMAGE -->
     <div id="imageModal" class="image-modal">
         <span class="close-modal" id="closeModal">&times;</span>
         <img class="image-modal-content" id="fullImage" alt="Tampilan Penuh Foto">
     </div>
 
-    <!-- FOOTER -->
     <footer>
         <p>© 2026 Pemerintah Kelurahan Bane, Kecamatan Siantar Utara. All Rights Reserved.</p>
-        <p>Help/Support: 08887359178</p>
+        
+        <!-- WIDGET ICON SOSIAL MEDIA (FOOTER) -->
+        <div class="social-container">
+            <a href="#" class="social-icon social-tiktok" target="_blank" title="TikTok Kelurahan Bane">
+                <svg viewBox="0 0 24 24"><path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 2.102 6.338 6.338 0 0 0 1.078 8.924 6.338 6.338 0 0 0 8.782-.931 6.267 6.267 0 0 0 1.558-4.286V8.948a8.282 8.282 0 0 0 4.777 1.518V7.021a4.805 4.805 0 0 1-1.566-.335z"/></svg>
+            </a>
+            <a href="#" class="social-icon social-youtube" target="_blank" title="YouTube Kelurahan Bane">
+                <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="#" class="social-icon social-instagram" target="_blank" title="Instagram Kelurahan Bane">
+                <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+        </div>
+
+        <p>Help/Support 08887359178</p>
     </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // --- HAMBURGER MENU ---
+            // ==========================================
+            // KELOLA LINK SOSIAL MEDIA DI SINI (BISA DIRENAME / DIUBAH)
+            // ==========================================
+            const linkTikTok    = "https://www.tiktok.com/@kelurahanbane";
+            const linkYouTube   = "https://www.youtube.com/@kelurahanbane";
+            const linkInstagram = "https://www.instagram.com/kelurahanbane";
+
+            // Mengaplikasikan link secara otomatis ke semua tombol logo di header & footer
+            document.querySelectorAll('.social-tiktok').forEach(el => el.href = linkTikTok);
+            document.querySelectorAll('.social-youtube').forEach(el => el.href = linkYouTube);
+            document.querySelectorAll('.social-instagram').forEach(el => el.href = linkInstagram);
+
+
+            // --- TOGGLE MENU HAMBURGER ---
             const hamburgerBtn = document.getElementById("hamburgerBtn");
             const navMenu = document.getElementById("navMenu");
 
@@ -476,6 +943,7 @@
                 navMenu.classList.toggle("open");
             });
 
+            // Tutup menu otomatis kalau salah satu link diklik
             navMenu.querySelectorAll("a").forEach(function (link) {
                 link.addEventListener("click", function () {
                     hamburgerBtn.classList.remove("open");
@@ -483,7 +951,61 @@
                 });
             });
 
-            // --- POPUP/LIGHTBOX GAMBAR ---
+            // --- LOGIKA KALENDER & JAM REALTIME ---
+            function renderKalender() {
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = now.getMonth();
+                const todayDate = now.getDate();
+
+                const namaBulan = [
+                    "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+                    "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+                ];
+                const namaHari = [
+                    "Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"
+                ];
+
+                document.getElementById("kalenderBulanTahun").innerText = `${namaBulan[month]} ${year}`;
+                document.getElementById("kalenderHariIni").innerText = `${namaHari[now.getDay()]}, ${todayDate} ${namaBulan[month]} ${year}`;
+
+                const kalenderDates = document.getElementById("kalenderDates");
+                kalenderDates.innerHTML = "";
+
+                const firstDayIndex = new Date(year, month, 1).getDay();
+                const lastDay = new Date(year, month + 1, 0).getDate();
+
+                for (let i = 0; i < firstDayIndex; i++) {
+                    const emptyDiv = document.createElement("div");
+                    emptyDiv.classList.add("empty");
+                    kalenderDates.appendChild(emptyDiv);
+                }
+
+                for (let day = 1; day <= lastDay; day++) {
+                    const dateDiv = document.createElement("div");
+                    dateDiv.innerText = day;
+
+                    if (day === todayDate) {
+                        dateDiv.classList.add("today");
+                    }
+
+                    kalenderDates.appendChild(dateDiv);
+                }
+            }
+
+            function updateJam() {
+                const now = new Date();
+                const jam = String(now.getHours()).padStart(2, '0');
+                const menit = String(now.getMinutes()).padStart(2, '0');
+                const detik = String(now.getSeconds()).padStart(2, '0');
+                document.getElementById("jamRealtime").innerText = `${jam}:${menit}:${detik} WIB`;
+            }
+
+            renderKalender();
+            updateJam();
+            setInterval(updateJam, 1000);
+
+            // --- LOGIKA POPUP / MODAL FULLSCREEN FOTO ---
             const imageModal = document.getElementById("imageModal");
             const fullImage = document.getElementById("fullImage");
             const closeModal = document.getElementById("closeModal");
@@ -497,10 +1019,12 @@
                 });
             });
 
+            // Tutup modal saat tombol silang diklik
             closeModal.addEventListener("click", function () {
                 imageModal.style.display = "none";
             });
 
+            // Tutup modal jika area luar gambar diklik
             imageModal.addEventListener("click", function (e) {
                 if (e.target === imageModal) {
                     imageModal.style.display = "none";
